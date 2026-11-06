@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faiq Ahmed Siddique | Odoo Developer · Python &amp; Full-Stack</title>
+  <meta name="description" content="Faiq Ahmed Siddique, Odoo 19 developer building custom ERP modules in Python, OWL and PostgreSQL. Full-stack background in React.js and FastAPI. Lahore, Pakistan." />
+  <meta name="theme-color" content="#0b0912" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%232dd4bf'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230b0912'/%3E%3Ctext x='32' y='41' font-family='monospace' font-weight='700' font-size='24' text-anchor='middle' fill='url(%23g)'%3E%7Bf%7D%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body>
+
+  <!-- Preloader: a tiny terminal boot -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__term">
+      <p><span class="p">$</span> odoo-bin -u faiq_portfolio</p>
+      <p class="l2">Loading modules<span class="dots"></span></p>
+      <div class="loader__bar"><i></i></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg__blob bg__blob--1"></div>
+    <div class="bg__blob bg__blob--2"></div>
+    <div class="bg__blob bg__blob--3"></div>
+    <div class="bg__grid"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo" aria-label="Faiq Ahmed, home">
+        <span class="logo__mark">{f}</span>
+        <span class="logo__text">faiq<b>.dev</b></span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav__cta-mobile"><a href="#contact" class="btn btn--primary">Hire Me</a></li>
+      </ul>
+
+      <a href="https://www.linkedin.com/in/faiq-ahmad1548" class="nav__social" target="_blank" rel="noopener" aria-label="Faiq on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+
+      <a href="#contact" class="btn btn--primary nav__cta">
+        <span>Hire Me</span>
+        <svg viewBox="0 0 24 24" class="ico-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero container" id="home">
+      <div class="hero__content">
+        <div class="pill reveal">
+          <span class="pill__dot"></span>
+          Building Odoo 19 ERP modules at ExD
+        </div>
+
+        <h1 class="hero__title reveal" data-delay="1">
+          <span class="hero__hi"><span class="mono">&lt;hello world /&gt;</span> I'm</span>
+          <span class="hero__name">Faiq Ahmed <em>Siddique</em></span>
+        </h1>
+
+        <p class="hero__role reveal" data-delay="2">
+          <span class="mono hero__role-static">&gt;</span>
+          <span class="typed" id="typed"></span><span class="caret">_</span>
+        </p>
+
+        <p class="hero__lead reveal" data-delay="3">
+          I build and maintain custom <strong>Odoo 19</strong> modules for a production ERP covering HR, time off,
+          expenses, timesheets and projects, using <strong>Python, the Odoo ORM, OWL</strong> and
+          <strong>PostgreSQL</strong>. I take features from requirements through security design and testing to deployment.
+        </p>
+
+        <div class="hero__actions reveal" data-delay="4">
+          <a href="#contact" class="btn btn--primary btn--lg magnetic">
+            <span>Let's Build Something</span>
+            <svg viewBox="0 0 24 24" class="ico-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="assets/Faiq_Ahmed_Resume_2026.pdf" class="btn btn--ghost btn--lg magnetic" download>
+            <svg viewBox="0 0 24 24" class="ico-dl"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            <span>Download Resume</span>
+          </a>
+          <a href="https://www.linkedin.com/in/faiq-ahmad1548" class="btn btn--ghost btn--lg btn--linkedin magnetic" target="_blank" rel="noopener" aria-label="Faiq on LinkedIn">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        <ul class="hero__stats reveal" data-delay="5">
+          <li><b><span class="counter" data-to="15">0</span>+</b><span>Custom Odoo<br/>modules</span></li>
+          <li><b><span class="counter" data-to="8">0</span></b><span>Months in<br/>production ERP</span></li>
+          <li><b><span class="counter" data-to="3.5" data-dec="1">0</span></b><span>CGPA in<br/>Computer Science</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__visual reveal" data-delay="2">
+        <div class="portrait" id="portrait">
+          <div class="portrait__orbit"><i></i></div>
+          <div class="portrait__glow"></div>
+          <div class="window">
+            <div class="window__bar">
+              <span class="d d--r"></span><span class="d d--y"></span><span class="d d--g"></span>
+              <span class="window__title">faiq_ahmed.py</span>
+            </div>
+            <div class="window__body">
+              <img src="assets/profile.jpg" alt="Portrait of Faiq Ahmed Siddique" width="720" height="900" />
+              <div class="scanline"></div>
+            </div>
+          </div>
+
+          <div class="chip chip--1">
+            <span class="chip__ico"><svg viewBox="0 0 24 24" class="spin-slow"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span>
+            <div><b>Odoo 19</b><small>ORM · OWL · QWeb</small></div>
+          </div>
+          <div class="chip chip--2">
+            <span class="chip__ico chip__ico--mint"><svg viewBox="0 0 24 24" class="bob"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+            <div><b>Python</b><small>FastAPI · Odoo</small></div>
+          </div>
+          <div class="chip chip--3">
+            <span class="chip__ico chip__ico--pink"><svg viewBox="0 0 24 24" class="pulse"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+            <div><b>PostgreSQL</b><small>Data &amp; security</small></div>
+          </div>
+          <div class="code-chip">
+            <span class="k">class</span> <span class="c">Faiq</span>(models.Model):<br/>
+            &nbsp;&nbsp;_name = <span class="s">'odoo.developer'</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll down">
+        <span class="scroll-hint__mouse"><i></i></span>
+        <small>scroll</small>
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Odoo 19</span><i>{ }</i><span>Python</span><i>&lt;/&gt;</i><span>OWL</span><i>{ }</i><span>PostgreSQL</span><i>&lt;/&gt;</i>
+        <span>QWeb</span><i>{ }</i><span>React.js</span><i>&lt;/&gt;</i><span>FastAPI</span><i>{ }</i><span>JavaScript</span><i>&lt;/&gt;</i><span>SCSS</span><i>{ }</i><span>Git</span><i>&lt;/&gt;</i>
+        <span>Odoo 19</span><i>{ }</i><span>Python</span><i>&lt;/&gt;</i><span>OWL</span><i>{ }</i><span>PostgreSQL</span><i>&lt;/&gt;</i>
+        <span>QWeb</span><i>{ }</i><span>React.js</span><i>&lt;/&gt;</i><span>FastAPI</span><i>{ }</i><span>JavaScript</span><i>&lt;/&gt;</i><span>SCSS</span><i>{ }</i><span>Git</span><i>&lt;/&gt;</i>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section container" id="about">
+      <div class="section__head reveal">
+        <span class="eyebrow">01 // about</span>
+        <h2 class="section__title">Code that solves <span class="grad">real business problems</span></h2>
+      </div>
+
+      <div class="about">
+        <div class="about__text reveal">
+          <p>
+            I'm an <strong>Odoo Developer</strong> at Excellence Delivered (ExD) in Lahore. For the last 8 months
+            I've been building and maintaining the custom modules behind the company's production ERP, covering
+            HR, attendance, time off, expenses, timesheets, project allocation and reporting. I'm now
+            extending it into <strong>accounting</strong>.
+          </p>
+          <p>
+            I hold a <strong>BS in Computer Science</strong> and come from a full-stack background in
+            <strong>React.js and FastAPI</strong>. I care about maintainable code, proper access control
+            and tests that catch problems before users do.
+          </p>
+          <div class="about__tags">
+            <span>Problem Solver</span><span>Clean Code</span><span>Security-Minded</span><span>Always Learning</span><span>Fitness &amp; Health</span>
+          </div>
+        </div>
+
+        <div class="about__cards">
+          <div class="info-card reveal tilt" data-delay="1">
+            <span class="info-card__ico"><svg viewBox="0 0 24 24" class="bob"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <small>Based in</small><b>Lahore, Pakistan</b>
+          </div>
+          <div class="info-card reveal tilt" data-delay="2">
+            <span class="info-card__ico info-card__ico--pink"><svg viewBox="0 0 24 24" class="ring"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+            <small>Phone</small><b><a href="tel:+923342445570">+92 334 2445570</a></b>
+          </div>
+          <div class="info-card info-card--wide reveal tilt" data-delay="3">
+            <span class="info-card__ico info-card__ico--mint"><svg viewBox="0 0 24 24" class="swing"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
+            <small>Email</small><b><a href="mailto:faiqahmad1548@gmail.com">faiqahmad1548@gmail.com</a></b>
+          </div>
+          <div class="info-card info-card--wide reveal tilt" data-delay="4">
+            <span class="info-card__ico info-card__ico--amber"><svg viewBox="0 0 24 24" class="bob"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <small>Education</small><b>BS Computer Science · NCBA&amp;E Lahore · CGPA 3.5</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section container" id="services">
+      <div class="section__head reveal">
+        <span class="eyebrow">02 // services</span>
+        <h2 class="section__title">What I can <span class="grad">build for you</span></h2>
+        <p class="section__sub">From a single field to a full business app: modules that fit how your company actually works.</p>
+      </div>
+
+      <div class="services">
+        <article class="svc reveal tilt" data-delay="1">
+          <span class="svc__num">01</span>
+          <div class="svc__ico"><svg viewBox="0 0 48 48" class="draw"><path d="M24 4l17 10v20L24 44 7 34V14z"/><path d="M7 14l17 10 17-10M24 24v20"/></svg></div>
+          <h3>Custom Odoo Modules</h3>
+          <p>New apps and extensions to standard Odoo 19: models, views, wizards, scheduled actions and mail templates.</p>
+          <ul><li>ORM models &amp; logic</li><li>QWeb &amp; XML views</li><li>Wizards &amp; cron jobs</li></ul>
+        </article>
+
+        <article class="svc reveal tilt" data-delay="2">
+          <span class="svc__num">02</span>
+          <div class="svc__ico svc__ico--mint"><svg viewBox="0 0 48 48" class="draw"><circle cx="10" cy="24" r="5"/><circle cx="38" cy="12" r="5"/><circle cx="38" cy="36" r="5"/><path d="M15 22l18-8M15 26l18 8"/></svg></div>
+          <h3>Workflows &amp; Approvals</h3>
+          <p>Multi-stage approval chains routed by department, location or manager, with reminders and notifications.</p>
+          <ul><li>Two-stage approvals</li><li>Routing rules</li><li>Automated reminders</li></ul>
+        </article>
+
+        <article class="svc reveal tilt" data-delay="3">
+          <span class="svc__num">03</span>
+          <div class="svc__ico svc__ico--pink"><svg viewBox="0 0 48 48" class="draw"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M6 16h36M16 42V16"/><path d="M22 34l5-8 4 4 5-8"/></svg></div>
+          <h3>OWL Dashboards &amp; UI</h3>
+          <p>Interactive dashboards and custom views in OWL and SCSS, fed by Python controllers and JSON endpoints.</p>
+          <ul><li>Real-time reporting</li><li>Gantt &amp; grid views</li><li>Themes &amp; dark mode</li></ul>
+        </article>
+
+        <article class="svc reveal tilt" data-delay="1">
+          <span class="svc__num">04</span>
+          <div class="svc__ico svc__ico--amber"><svg viewBox="0 0 48 48" class="draw"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg></div>
+          <h3>Security &amp; Access Control</h3>
+          <p>Security groups and record rules so every user sees exactly what they should, and nothing more.</p>
+          <ul><li>Record rules</li><li>Role-based groups</li><li>Secure sign-in-as</li></ul>
+        </article>
+
+        <article class="svc reveal tilt" data-delay="2">
+          <span class="svc__num">05</span>
+          <div class="svc__ico"><svg viewBox="0 0 48 48" class="draw"><path d="M18 14l-8 10 8 10M30 14l8 10-8 10"/><path d="M27 8l-6 32"/></svg></div>
+          <h3>Integrations &amp; APIs</h3>
+          <p>Connecting Odoo to outside systems, such as attendance devices, translation services and REST APIs.</p>
+          <ul><li>External API sync</li><li>JSON controllers</li><li>Data validation</li></ul>
+        </article>
+
+        <article class="svc reveal tilt" data-delay="3">
+          <span class="svc__num">06</span>
+          <div class="svc__ico svc__ico--mint"><svg viewBox="0 0 48 48" class="draw"><circle cx="24" cy="24" r="4"/><ellipse cx="24" cy="24" rx="20" ry="8"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(120 24 24)"/></svg></div>
+          <h3>Full-Stack Web Apps</h3>
+          <p>Web applications with React.js front ends and FastAPI or Node.js back ends on PostgreSQL or SQL Server.</p>
+          <ul><li>React.js interfaces</li><li>FastAPI REST APIs</li><li>Responsive design</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS + CODE ============ -->
+    <section class="section container process">
+      <div class="section__head reveal">
+        <span class="eyebrow">03 // how i work</span>
+        <h2 class="section__title">From requirement <span class="grad">to production</span></h2>
+      </div>
+
+      <div class="process__grid">
+        <ol class="steps reveal">
+          <li><span class="steps__n">01</span><div><b>Understand</b><p>Turn the business requirement into clear models, rules and screens.</p></div></li>
+          <li><span class="steps__n">02</span><div><b>Secure</b><p>Design groups and record rules first, so access is right from day one.</p></div></li>
+          <li><span class="steps__n">03</span><div><b>Build</b><p>Python, ORM, OWL and QWeb, kept maintainable and easy to extend.</p></div></li>
+          <li><span class="steps__n">04</span><div><b>Test</b><p>Automated tests with Odoo's test framework catch regressions early.</p></div></li>
+          <li><span class="steps__n">05</span><div><b>Ship</b><p>Git branching, then deploy and upgrade on the UAT server before go-live.</p></div></li>
+        </ol>
+
+        <div class="editor reveal" data-delay="1">
+          <div class="window__bar">
+            <span class="d d--r"></span><span class="d d--y"></span><span class="d d--g"></span>
+            <span class="window__title">timesheet_approval.py</span>
+          </div>
+          <pre class="editor__code"><code id="codeTyper"></code><span class="caret caret--block">▌</span></pre>
+          <div class="editor__status"><span>● Python</span><span>Odoo 19</span><span id="codeLine">Ln 1</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK / EXPERIENCE ============ -->
+    <section class="section container" id="work">
+      <div class="section__head reveal">
+        <span class="eyebrow">04 // experience</span>
+        <h2 class="section__title">What I've <span class="grad">shipped</span></h2>
+      </div>
+
+      <article class="job reveal tilt">
+        <div class="job__top">
+          <div>
+            <span class="badge badge--live">● Current</span>
+            <h3>Odoo Developer</h3>
+            <p class="job__co">Excellence Delivered (Pvt.) Ltd (ExD) · Lahore</p>
+          </div>
+          <time>March 2026 – Present · 8 months</time>
+        </div>
+        <p class="job__lead">
+          I develop and maintain a suite of <strong>15+ custom Odoo 19 modules</strong> powering the company's internal ERP
+          across HR, attendance, timesheets, project allocation, expenses and reporting. I write automated tests,
+          follow a Git-based branching workflow, and deploy and upgrade modules on the UAT server.
+          I'm currently building <strong>custom Accounting modules</strong>.
+        </p>
+      </article>
+
+      <div class="filters reveal" role="tablist" aria-label="Filter modules">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="hr">HR &amp; Time Off</button>
+        <button class="filter" data-filter="time">Timesheets</button>
+        <button class="filter" data-filter="project">Projects</button>
+        <button class="filter" data-filter="platform">Platform &amp; UI</button>
+      </div>
+
+      <div class="mods" id="mods">
+        <article class="mod tilt" data-cat="time">
+          <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>
+          <h4>Timesheet Approvals</h4>
+          <p>Two-stage approval with a daily grid entry view, expected-hours calculation, holiday timesheets, submission checks and automated compliance reminders.</p>
+          <span class="mod__tag">Timesheets</span>
+        </article>
+        <article class="mod tilt" data-cat="project">
+          <span class="mod__ico mod__ico--mint"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.1a3 3 0 0 1 0 5.8M21 21v-2a4 4 0 0 0-3-3.9"/></svg></span>
+          <h4>Project Allocation &amp; Access</h4>
+          <p>Employee project allocation with role-based access, so employees only see the projects and tasks assigned to them.</p>
+          <span class="mod__tag">Projects</span>
+        </article>
+        <article class="mod tilt" data-cat="platform">
+          <span class="mod__ico mod__ico--pink"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+          <h4>OWL Dashboards</h4>
+          <p>BI, project &amp; task, and employee dashboards backed by Python controllers and JSON endpoints for real-time reporting.</p>
+          <span class="mod__tag">Platform &amp; UI</span>
+        </article>
+        <article class="mod tilt" data-cat="hr">
+          <span class="mod__ico mod__ico--amber"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+          <h4>My Workspace</h4>
+          <p>A personal employee portal: approvals, notifications, tasks, time, time off, expenses, resume and HR profile on one screen.</p>
+          <span class="mod__tag">HR &amp; Time Off</span>
+        </article>
+        <article class="mod tilt" data-cat="hr">
+          <span class="mod__ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/><path d="M9 16l2 2 4-4"/></svg></span>
+          <h4>Leave Policy Engine</h4>
+          <p>July–June leave year quotas, pro-rata for joiners, capped carry-forward, sandwich rule, recall from leave and notice-period limits.</p>
+          <span class="mod__tag">HR &amp; Time Off</span>
+        </article>
+        <article class="mod tilt" data-cat="hr">
+          <span class="mod__ico mod__ico--mint"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+          <h4>Expenses &amp; Flexi-Benefits</h4>
+          <p>Expense and flexi-benefit claims with a configurable multi-step approval chain routed by department and location.</p>
+          <span class="mod__tag">HR &amp; Time Off</span>
+        </article>
+        <article class="mod tilt" data-cat="project">
+          <span class="mod__ico mod__ico--pink"><svg viewBox="0 0 24 24"><path d="M4 5h9M4 12h14M4 19h7"/><circle cx="17" cy="5" r="1.5"/><circle cx="21" cy="12" r="1.5"/><circle cx="14" cy="19" r="1.5"/></svg></span>
+          <h4>Gantt &amp; WBS</h4>
+          <p>A Gantt view and WBS outline ordering added to the Project app for planning and scheduling work.</p>
+          <span class="mod__tag">Projects</span>
+        </article>
+        <article class="mod tilt" data-cat="platform">
+          <span class="mod__ico mod__ico--amber"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 11l2 2 4-4"/></svg></span>
+          <h4>Secure User Proxy</h4>
+          <p>Sign-in-as for authorised staff: see the system with another user's exact access to troubleshoot issues.</p>
+          <span class="mod__tag">Platform &amp; UI</span>
+        </article>
+        <article class="mod tilt" data-cat="time">
+          <span class="mod__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+          <h4>Smart Task Timer</h4>
+          <p>Project and task timer with idle detection, audible alerts and desktop notifications, hardened against real production failure modes.</p>
+          <span class="mod__tag">Timesheets</span>
+        </article>
+        <article class="mod tilt" data-cat="hr">
+          <span class="mod__ico mod__ico--mint"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-5h14v5"/></svg></span>
+          <h4>Attendance API &amp; Teams</h4>
+          <p>An external attendance API synced into Odoo HR, plus team management, delegation and an organization hierarchy for managers.</p>
+          <span class="mod__tag">HR &amp; Time Off</span>
+        </article>
+        <article class="mod tilt" data-cat="platform">
+          <span class="mod__ico mod__ico--pink"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></span>
+          <h4>Design Theme &amp; Dark Mode</h4>
+          <p>Shared design tokens, light/dark theming and a custom home menu, giving every ExD app one modern, consistent look.</p>
+          <span class="mod__tag">Platform &amp; UI</span>
+        </article>
+        <article class="mod tilt" data-cat="platform">
+          <span class="mod__ico mod__ico--amber"><svg viewBox="0 0 24 24"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></span>
+          <h4>English / Arabic Interface</h4>
+          <p>A language switcher with Arabic for custom module screens and on-demand Google translation of chatter messages.</p>
+          <span class="mod__tag">Platform &amp; UI</span>
+        </article>
+        <article class="mod tilt" data-cat="hr">
+          <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg></span>
+          <h4>Announcements &amp; Documents</h4>
+          <p>HR announcements with scheduled visibility and email alerts, plus a company documents library every employee can open.</p>
+          <span class="mod__tag">HR &amp; Time Off</span>
+        </article>
+        <article class="mod mod--wip tilt" data-cat="platform">
+          <span class="mod__ico mod__ico--mint"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h2M14 10h2M8 14h2M14 14h2M8 18h2M14 18h2"/></svg></span>
+          <h4>Accounting <em>(in progress)</em></h4>
+          <p>Custom accounting modules that extend the ERP into finance operations.</p>
+          <span class="mod__tag">Now building</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section container" id="projects">
+      <div class="section__head reveal">
+        <span class="eyebrow">05 // projects</span>
+        <h2 class="section__title">Before Odoo, <span class="grad">I built these</span></h2>
+      </div>
+
+      <div class="projects">
+        <article class="proj reveal tilt" data-delay="1">
+          <div class="proj__art proj__art--face" aria-hidden="true">
+            <svg viewBox="0 0 200 140" class="face">
+              <path class="corner" d="M50 20H35v15M150 20h15v15M50 120H35v-15M150 120h15v-15"/>
+              <circle cx="100" cy="62" r="24" class="head"/>
+              <path class="head" d="M60 125c4-22 20-34 40-34s36 12 40 34"/>
+              <circle cx="92" cy="60" r="2.5" class="dot"/><circle cx="108" cy="60" r="2.5" class="dot"/>
+              <circle cx="100" cy="70" r="1.8" class="dot"/>
+              <line x1="35" x2="165" y1="20" y2="20" class="scan"/>
+            </svg>
+            <span class="proj__match">✓ MATCH · Present</span>
+          </div>
+          <div class="proj__body">
+            <span class="proj__kind">Final Year Project</span>
+            <h3>Automatic Attendance System: Face Recognition</h3>
+            <p>Institutes record attendance automatically by identifying students from their faces, with no manual input.</p>
+            <ul>
+              <li>REST API in FastAPI with a component-based React.js interface for admins, faculty and students</li>
+              <li>PostgreSQL schema for student records, facial encodings and attendance logs</li>
+            </ul>
+            <div class="proj__stack"><span>React.js</span><span>FastAPI</span><span>PostgreSQL</span><span>face_recognition</span></div>
+          </div>
+        </article>
+
+        <article class="proj reveal tilt" data-delay="2">
+          <div class="proj__art proj__art--store" aria-hidden="true">
+            <div class="store">
+              <div class="store__card"><i></i><b></b><b class="s"></b></div>
+              <div class="store__card"><i></i><b></b><b class="s"></b></div>
+              <div class="store__card"><i></i><b></b><b class="s"></b></div>
+            </div>
+            <svg viewBox="0 0 24 24" class="cart"><path d="M3 4h3l3 11h10l2-8H7"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+          </div>
+          <div class="proj__body">
+            <span class="proj__kind">Semester Project</span>
+            <h3>E-Store: Online Shopping Platform</h3>
+            <p>A responsive web store for buying and selling products, consistent across every device.</p>
+            <ul>
+              <li>Bootstrap grid and components, client-side validation and dynamic loading in JavaScript</li>
+              <li>Asynchronous Node.js back end with products, users and transactions modelled in SQL Server</li>
+            </ul>
+            <div class="proj__stack"><span>HTML/CSS</span><span>Bootstrap</span><span>JavaScript</span><span>Node.js</span><span>SQL Server</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section container" id="skills">
+      <div class="section__head reveal">
+        <span class="eyebrow">06 // stack</span>
+        <h2 class="section__title">Tools of <span class="grad">the trade</span></h2>
+      </div>
+
+      <div class="skills">
+        <div class="skill-group skill-group--wide reveal tilt" data-delay="1">
+          <header><span class="sg-ico">ERP</span><h3>ERP / Odoo</h3></header>
+          <div class="tags">
+            <span>Odoo 19 Modules</span><span>ORM</span><span>OWL Framework</span><span>QWeb &amp; XML Views</span>
+            <span>Security Groups</span><span>Record Rules</span><span>Controllers</span><span>Wizards</span>
+            <span>Scheduled Actions</span><span>Mail Templates</span><span>Gantt Views</span><span>Time Off</span><span>Expenses</span><span>Accounting</span>
+          </div>
+        </div>
+        <div class="skill-group skill-group--mint reveal tilt" data-delay="2">
+          <header><span class="sg-ico">&lt;/&gt;</span><h3>Languages</h3></header>
+          <div class="tags"><span>Python</span><span>JavaScript (ES6+)</span><span>C++</span><span>SQL</span></div>
+        </div>
+        <div class="skill-group skill-group--pink reveal tilt" data-delay="3">
+          <header><span class="sg-ico">FW</span><h3>Frameworks &amp; Libraries</h3></header>
+          <div class="tags"><span>React.js</span><span>FastAPI</span><span>Node.js</span><span>Bootstrap</span><span>face_recognition</span></div>
+        </div>
+        <div class="skill-group skill-group--amber reveal tilt" data-delay="1">
+          <header><span class="sg-ico">UI</span><h3>Front End</h3></header>
+          <div class="tags"><span>HTML5</span><span>CSS3</span><span>SCSS</span><span>Responsive Design</span></div>
+        </div>
+        <div class="skill-group reveal tilt" data-delay="2">
+          <header><span class="sg-ico">DB</span><h3>Databases</h3></header>
+          <div class="tags"><span>PostgreSQL</span><span>SQL Server</span></div>
+        </div>
+        <div class="skill-group skill-group--mint reveal tilt" data-delay="3">
+          <header><span class="sg-ico">⌘</span><h3>Tools</h3></header>
+          <div class="tags"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Visual Studio</span></div>
+        </div>
+      </div>
+
+      <div class="edu reveal tilt">
+        <div class="gpa">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="gpa__track"/><circle cx="60" cy="60" r="50" class="gpa__fill"/></svg>
+          <div class="gpa__num"><b>3.5</b><small>/ 4.0</small></div>
+        </div>
+        <div class="edu__body">
+          <span class="eyebrow">education</span>
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p>National College of Business Administration &amp; Economics (NCBA&amp;E), Lahore · 2020 – 2025</p>
+          <div class="tags tags--sm">
+            <span>Data Structures &amp; Algorithms</span><span>Object-Oriented Programming</span><span>Database Systems</span><span>Software Engineering</span><span>Web Development</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert reveal tilt" id="certifications">
+        <a class="cert__thumb" href="assets/Udemy_Node_JS_Certificate.pdf" target="_blank" rel="noopener" aria-label="Open the Udemy certificate">
+          <img src="assets/udemy-certificate.jpg" alt="Udemy certificate of completion: Top Node and Javascript Bundle, awarded to Faiq Ahmed" width="900" height="669" loading="lazy" />
+          <span class="cert__shine"></span>
+          <span class="cert__zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </a>
+        <div class="cert__body">
+          <div class="cert__top">
+            <span class="eyebrow">certification</span>
+            <span class="cert__badge">
+              <svg viewBox="0 0 24 24" class="pulse"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1"/><path d="M9.5 9l1.8 1.8L14.5 7.5"/></svg>
+              Verified
+            </span>
+          </div>
+          <h3>Top Node and JavaScript Bundle: Learn Node and JS</h3>
+          <p class="cert__issuer">Udemy · Instructor: John Elder</p>
+          <div class="cert__meta">
+            <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>Sept 3, 2026</span>
+            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>8 total hours</span>
+            <span><svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></svg>UC-427b346f</span>
+          </div>
+          <div class="tags tags--sm"><span>Node.js</span><span>JavaScript</span></div>
+          <div class="cert__actions">
+            <a href="https://ude.my/UC-427b346f-a93f-4e48-9787-a68bce3a3ae6" target="_blank" rel="noopener" class="btn btn--primary">
+              <span>Verify on Udemy</span>
+              <svg viewBox="0 0 24 24" class="ico-arrow"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a href="assets/Udemy_Node_JS_Certificate.pdf" target="_blank" rel="noopener" class="btn btn--ghost">
+              <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              <span>View Certificate</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner__orb"></div>
+        <p class="mono cta-banner__cmd">$ git checkout -b <span>your-next-feature</span></p>
+        <h2>Need an Odoo developer who ships <span class="grad">clean, secure modules</span>?</h2>
+        <p>Tell me what your business needs and I'll help you build it.</p>
+        <a href="#contact" class="btn btn--primary btn--lg magnetic"><span>Start a Conversation</span>
+          <svg viewBox="0 0 24 24" class="ico-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section container" id="contact">
+      <div class="section__head reveal">
+        <span class="eyebrow">07 // contact</span>
+        <h2 class="section__title">Let's <span class="grad">work together</span></h2>
+      </div>
+
+      <div class="contact">
+        <div class="contact__cards">
+          <a class="c-card reveal tilt" data-delay="1" href="mailto:faiqahmad1548@gmail.com">
+            <span class="c-card__ico"><svg viewBox="0 0 24 24" class="swing"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
+            <div><small>Email me</small><b>faiqahmad1548@gmail.com</b></div>
+            <svg viewBox="0 0 24 24" class="c-card__go"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="c-card reveal tilt" data-delay="2" href="tel:+923342445570">
+            <span class="c-card__ico c-card__ico--pink"><svg viewBox="0 0 24 24" class="ring"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+            <div><small>Call me</small><b>+92 334 2445570</b></div>
+            <svg viewBox="0 0 24 24" class="c-card__go"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="c-card c-card--linkedin reveal tilt" data-delay="3" href="https://www.linkedin.com/in/faiq-ahmad1548" target="_blank" rel="noopener">
+            <span class="c-card__ico c-card__ico--blue"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.01M12 17v-6.5M12 13.5a2.5 2.5 0 0 1 5 0V17"/></svg></span>
+            <div><small>LinkedIn</small><b>in/faiq-ahmad1548</b></div>
+            <svg viewBox="0 0 24 24" class="c-card__go"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="c-card reveal tilt" data-delay="3" href="https://wa.me/923342445570" target="_blank" rel="noopener">
+            <span class="c-card__ico c-card__ico--green"><svg viewBox="0 0 24 24" class="bob"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg></span>
+            <div><small>WhatsApp</small><b>Chat on WhatsApp</b></div>
+            <svg viewBox="0 0 24 24" class="c-card__go"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <div class="c-card reveal tilt" data-delay="4">
+            <span class="c-card__ico c-card__ico--amber"><svg viewBox="0 0 24 24" class="bob"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><small>Location</small><b>Lahore, Punjab, Pakistan</b></div>
+          </div>
+        </div>
+
+        <form class="form reveal" id="contactForm" data-delay="2">
+          <div class="form__head mono"><span class="d d--r"></span><span class="d d--y"></span><span class="d d--g"></span> new_message.txt</div>
+          <div class="form__row">
+            <label class="field"><input type="text" name="name" required placeholder=" " /><span>Your name</span></label>
+            <label class="field"><input type="email" name="email" required placeholder=" " /><span>Your email</span></label>
+          </div>
+          <label class="field"><input type="text" name="subject" placeholder=" " /><span>Subject</span></label>
+          <label class="field"><textarea name="message" rows="5" required placeholder=" "></textarea><span>Your message</span></label>
+          <button type="submit" class="btn btn--primary btn--lg btn--block magnetic">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" class="ico-send"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+          </button>
+          <p class="form__note">Opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__glow"></div>
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="logo"><span class="logo__mark">{f}</span><span class="logo__text">faiq<b>.dev</b></span></a>
+        <p>Odoo Developer · Python &amp; Full-Stack Web Developer. Building ERP modules that solve real business problems.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#projects">Projects</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="mailto:faiqahmad1548@gmail.com">faiqahmad1548@gmail.com</a>
+        <a href="tel:+923342445570">+92 334 2445570</a>
+        <a href="https://www.linkedin.com/in/faiq-ahmad1548" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <span>Lahore, Pakistan</span>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> Faiq Ahmed Siddique. <span class="mono">Built with &lt;3 and clean code.</span></span>
+      <a href="#home" class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
